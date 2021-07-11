@@ -43,10 +43,15 @@ class ChessMatchTest {
 	}
 
 	@Test
-	@DisplayName("testing chess match entity maps correctly")
+	@DisplayName("testing chess match entity maps all columns correctly")
 	void test() {
 		assertNotNull(match);
 		assertEquals("Magnus Carlsen", match.getWhitePieces());
+		assertEquals("Sipke Ernst", match.getBlackPieces());
+		assertEquals("white", match.getWinner());
+		assertEquals("Caro-Kann Defense: Classical", match.getOpening());
+		assertEquals("checkmate", match.getResult());
+		assertEquals("2004-01-24", match.getDate().toString());
 	}
 
 }

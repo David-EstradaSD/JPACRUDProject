@@ -1,6 +1,7 @@
 package com.skilldistillery.jpachessmatches.entities;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -99,8 +100,13 @@ public class ChessMatch {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
-		this.date = date;
+	public void setDate(String date) {
+		try {
+	DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+			this.date = LocalDate.parse(date, format);
+		} catch (Exception e) {
+			this.date = null;
+		}
 	}
 
 }
