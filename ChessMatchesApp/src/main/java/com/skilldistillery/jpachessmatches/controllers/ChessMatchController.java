@@ -72,33 +72,23 @@ public class ChessMatchController {
 	public String createMatch(ChessMatch match, RedirectAttributes redir) {
 	    dao.createChessMatch(match);
 		redir.addFlashAttribute("match", match); // command object called all the setters and getters to construct a Match entity
-		return "redirect:matchAdded.do"; // redirect to a GET to add the new Match into the DB
+		return "redirect:added.do"; // redirect to a GET to add the new Match into the DB
 	}
-	
-	  @RequestMapping(path = "matchAdded.do", method = RequestMethod.GET) 
-	  public String matchAdded(ChessMatch match) { 
-	   	return "added";
-	  }
 	
 	@RequestMapping(path = "updateMatch.do", method = RequestMethod.POST)
 	public String updateMatch(ChessMatch match, RedirectAttributes redir) {
 		dao.updateChessMatch(match);
 		redir.addFlashAttribute("match", match);
-		return "redirect:matchUpdated.do";
-	}
-	
-	@RequestMapping(path = "matchUpdated.do", method = RequestMethod.GET) 
-	public String matchUpdated(ChessMatch match) { 
-		return "updated";
+		return "redirect:updated.do";
 	}
 	
 	@RequestMapping(path = "deleteMatch.do", method = RequestMethod.POST)
 	public String deleteMatch(int id, RedirectAttributes redir) {
 		boolean deleted = dao.deleteChessMatch(id);
 		if (deleted == true) {
-			return "redirect:matchDeleted.do";
+			return "redirect:deleted.do";
 		} else {
-			return "redirect:matchDeleted.do";
+			return "redirect:deleted.do";
 		}
 	}
 	

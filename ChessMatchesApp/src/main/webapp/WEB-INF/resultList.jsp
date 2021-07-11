@@ -18,7 +18,6 @@
 
 	<h1>Famous Chess Matches</h1>
 
-	<h2>Chess Matches Results:</h2>
 	<c:choose>
 		<c:when test="${! empty matches }">
 			<table>

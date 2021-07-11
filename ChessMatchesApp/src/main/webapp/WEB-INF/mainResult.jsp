@@ -68,10 +68,7 @@
 <h3>Delete the Chess Match from Database:</h3>
 <form action="deleteMatch.do" method="POST">
 
-	<input type="hidden" name = "id" value="${match.id}">
-
- <h3>Use extreme caution: there's no going back.</h3>
-
+<input type="hidden" name = "id" value="${match.id}">
 <button type="submit" id="yesDeleteBtn" class="btn btn-primary">Delete</button><br/>
 
 </form>
